@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Powerlifting - Best Yearly Records (1971-2024)</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>Powerlifting - Best Yearly Records (1971-2024)</h1>
+      <p class="subtitle">
+        Both sexes shown. Use the filters on the left and the brush below to zoom/scroll time.
+      </p>
+    </header>
+
+    <div class="layout">
+      <!-- Sidebar left -->
+      <aside class="sidebar">
+        <div class="filter-group">
+          <h2 class="filter-title">Scores</h2>
+
+          <div class="filter-row">
+            <label for="categorySelect">
+              Category
+              <span class="info-icon" tabindex="0">i
+                <span class="info-tooltip">
+                  Totals: sum of best Squat, Bench and Deadlift in a meet.<br />
+                  Single lifts (Squat/Bench/Deadlift): best yearly records per lift type.<br />
+                  Dots: bodyweight-adjusted score for comparing lifters.
+                </span>
+              </span>
+            </label>
+            <select id="categorySelect">
+              <option value="totals_all">Totals (All)</option>
+              <option value="totals_open">Totals (Open)</option>
+              <option value="totals_tested">Totals (Tested)</option>
+              <option value="dots">Dots</option>
+              <option value="squat">Squat</option>
+              <option value="bench">Bench</option>
+              <option value="deadlift">Deadlift</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h2 class="filter-title">Filter</h2>
+
+          <div class="filter-row">
+            <label for="federationSelect">Federation</label>
+            <select id="federationSelect">
+              <option value="all">All</option>
+            </select>
+          </div>
+
+          <div class="filter-row">
+            <label for="testedSelect">Tested</label>
+            <select id="testedSelect">
+              <option value="all">All</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+          <div class="filter-row">
+            <label for="equipmentSelect">Equipment</label>
+            <select id="equipmentSelect">
+              <option value="all">All</option>
+              <option value="Raw">Raw</option>
+              <option value="Wraps">Wraps</option>
+              <option value="Single-ply">Single-ply</option>
+              <option value="Multi-ply">Multi-ply</option>
+              <option value="Unlimited">Unlimited</option>
+            </select>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main panel right -->
+      <main class="main-panel">
+        <div id="chart-wrap">
+          <div class="chart-header">
+            <span class="chart-title">Best yearly records</span>
+            <div class="legend">
+              <div class="legend-item">
+                <span class="swatch male"></span>
+                <span>Male</span>
+              </div>
+              <div class="legend-item">
+                <span class="swatch female"></span>
+                <span>Female</span>
+              </div>
+            </div>
+          </div>
+          <svg id="chart"></svg>
+        </div>
+
+        <div id="brush-wrap">
+          <svg id="brush"></svg>
+        </div>
+
+        <div class="footer">
+          Data source: OpenPowerlifting (https://www.openpowerlifting.org). Visual created for coursework.
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
